@@ -20,9 +20,22 @@ const print = @import("std").debug.print;
 
 pub fn main() void {
     const zig = [_]u8{
-        0o131, // octal
-        0b1101000, // binary
-        0x66, // hex
+        // looking for Z, which is ASCII 90, so:
+        // 90 / 8 = 11, remainder 2
+        // 11 / 8 = 1, remainder 3
+        // 1 / 8 = 0/ remainder 1
+        // Octal 90 = 132
+        0o132, // octal
+        // 7 bits, pad to 01101000
+        // 64 + 32 + 8 = 104 // letter h in ASCII
+        // Add one least significant bit
+        0b1101001, // binary
+        // hexidecimal 66 to ASCII int:
+        // 6 * 1 = 6
+        // 6 * 16 = 96
+        // Hex 0x66 = 102, we want 103
+        // So the 1's place should be 7 to get a 'g'
+        0x67, // hex
     };
 
     print("{s} is cool.\n", .{zig});
