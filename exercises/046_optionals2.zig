@@ -37,8 +37,8 @@ pub fn main() void {
 
     // `linkElephants` will stop the program if you try and link an
     // elephant that doesn't exist! Uncomment and see what happens.
-    const missingElephant: ?*Elephant = null;
-    linkElephants(&elephantC, missingElephant);
+    // const missingElephant: ?*Elephant = null;
+    // linkElephants(&elephantC, missingElephant);
 
     visitElephants(&elephantA);
 
