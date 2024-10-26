@@ -190,7 +190,7 @@ const TripItem = union(enum) {
     fn printMe(p: TripItem) void {
         switch (p) {
             // Oops! The hermit forgot how to capture the union values
-            // in a switch statement. Please capture both values as
+            // in a switch statement. Please capture each value as
             // 'p' so the print statements work!
             .place => print("{s}", .{p.place.*.name}),
             .path => print("--{}->", .{p.path.*.dist}),
